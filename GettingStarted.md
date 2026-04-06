@@ -1,11 +1,40 @@
-# Azure Text-to-SQL Web Application Lab
- 
-> Build and deploy a complete cloud-native AI-powered web application on Microsoft Azure — with no hardcoded passwords or API keys.
- 
-## 📋 Lab Overview
- 
-In this lab, you will design, build, and deploy a **Text-to-SQL web application** on Microsoft Azure. The application integrates multiple Azure services, secured entirely by **Azure Managed Identity** — eliminating the need for passwords or API keys in your code.
- 
+# 🔷 Microsoft Azure — Text-to-SQL Web Application
+## Hands-On Lab Guide
+
+> **Total Labs:** 4 | **Estimated Duration:** 3–4 Hours | **Level:** Intermediate
+
+---
+
+## 📋 Lab Structure Overview
+
+| Lab | Title | Duration |
+|-----|-------|----------|
+| Lab 1 | Provisioning Azure SQL Server & Database | 45 mins |
+| Lab 2 | Creating Azure OpenAI Service & App Service | 45 mins |
+| Lab 3 | Configuring Security & Managed Identity | 30 mins |
+| Lab 4 | Deploying the Application & Testing | 45 mins |
+
+---
+
+## 🔧 Resource Naming Reference
+
+Use these names throughout all labs:
+
+| Resource | Name to Use |
+|----------|-------------|
+| Resource Group | `textsql-rg` |
+| SQL Server | `textsql-sqlserver` |
+| SQL Database | `textsqldb` |
+| OpenAI Service | `textsql-openai` |
+| OpenAI Deployment | `gpt-4-1` |
+| App Service Plan | `textsql-asp` |
+| App Service | `textsql-webapp` |
+| Managed Identity | `textsql-identity` |
+| Application Insights | `textsql-insights` |
+
+---
+
+---
 ### Three-Stage AI Pipeline
  
 ```
@@ -93,12 +122,3 @@ Step 9  →  User sees the final answer displayed on the web page
 - Experience with Azure OpenAI or other LLM APIs
  
 ---
- 
-## 🗂️ Lab Structure
- 
-| Lab | Title | Focus Area |
-|-----|-------|------------|
-| Lab 1 | Provisioning Azure Infrastructure | Create all required Azure resources via Azure Portal |
-| Lab 2 | Security, Identity & Database Setup | Managed Identity, RBAC roles, schema, tables, and sample data |
-| Lab 3 | Application Development | Review and understand the Python FastAPI application code |
-| Lab 4 | Deployment, Testing & Monitoring | Deploy app, run `main.py`, test server responses, and monitor |
