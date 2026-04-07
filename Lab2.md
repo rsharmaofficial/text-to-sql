@@ -244,7 +244,6 @@ bash startup.sh
 - [ ] OpenAI Endpoint and API Key copied and saved
 - [ ] App Service Plan `textsql-asp` created — Linux, Basic B1
 - [ ] App Service `textsql-webapp` created — Python 3.11, Linux
-- [ ] Application Insights `textsql-insights` created and linked
 - [ ] All 6 environment variables added to App Service
 - [ ] Startup command set to `bash startup.sh`
 

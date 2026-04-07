@@ -30,8 +30,6 @@ Use these names throughout all labs:
 | App Service Plan | `textsql-asp` |
 | App Service | `textsql-webapp` |
 | Managed Identity | `textsql-identity` |
-| Application Insights | `textsql-insights` |
-
 ---
 
 ---
@@ -59,8 +57,6 @@ User Question  →  SQL Generation (GPT-4.1)  →  Answer Synthesis  →  Natura
 | Azure SQL Server | Manages the SQL Database instance | AAD-only authentication |
 | User Managed Identity | Passwordless authentication between services | Assigned to App Service |
 | App Service Plan | Compute resources for the App Service | Linux hosting plan |
-| Application Insights | Monitoring, logging, and diagnostics | Connected to App Service |
- 
 ---
  
 ## 🔄 Application Flow
