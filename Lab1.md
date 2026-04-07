@@ -17,38 +17,8 @@ In this lab, you will create the data foundation of the Text-to-SQL application.
 
 ---
 
-## Task 1.1 — Create a Resource Group
 
-**Description:**
-A Resource Group is a logical container that holds all related Azure resources. All resources in this lab will live inside `textsql-rg` so they can be managed together.
-
-### Steps
-
-**Step 1:** Go to [https://portal.azure.com](https://portal.azure.com) and sign in with your Azure account.
-
-**Step 2:** In the top search bar, type **Resource Groups** and click it.
-
-**Step 3:** Click **+ Create**.
-
-**Step 4:** Fill in the following:
-- **Subscription:** Your active subscription
-- **Resource Group Name:** `textsql-rg`
-- **Region:** `West US`
-
-**Step 5:** Click **Review + Create**, then click **Create**.
-
-**Step 6:** Wait for the success notification, then click **Go to resource group**.
-
-📸 **Screenshot Placeholder:**
-```
-[INSERT SCREENSHOT: Resource Group creation page showing textsql-rg]
-```
-
-> ✅ **Verify:** `textsql-rg` appears in your Resource Groups list with Region = West US
-
----
-
-## Task 1.2 — Create Azure SQL Server
+## Task 1.1 — Create Azure SQL Server
 
 **Description:**
 The Azure SQL Server is the logical server that hosts your database. You will configure it with Microsoft Entra-only authentication, which means no SQL username/password — only secure Azure AD identity-based access.
@@ -85,7 +55,7 @@ The Azure SQL Server is the logical server that hosts your database. You will co
 
 ---
 
-## Task 1.3 — Configure SQL Server Firewall
+## Task 1.2 — Configure SQL Server Firewall
 
 **Description:**
 By default, Azure SQL Server blocks all external connections. You need to allow Azure services (so your App Service can connect) and optionally your local machine (for testing from your computer).
@@ -105,7 +75,7 @@ By default, Azure SQL Server blocks all external connections. You need to allow 
 
 ---
 
-## Task 1.4 — Create Azure SQL Database
+## Task 1.3 — Create Azure SQL Database
 
 **Description:**
 The SQL Database is where your actual data lives — products, customers, and sales records. You will create it under the SQL Server you just provisioned.
@@ -141,7 +111,7 @@ The SQL Database is where your actual data lives — products, customers, and sa
 ![](./Media/Lab1/image7.png)
 ---
 
-## Task 1.5 — Create Schema, Tables & Insert Sample Data
+## Task 1.4 — Create Schema, Tables & Insert Sample Data
 
 **Description:**
 Now that the database is ready, you will use the Azure Portal's built-in **Query Editor** to create your database schema (`SalesLT`), three tables, and insert sample data — all without any external tools.
