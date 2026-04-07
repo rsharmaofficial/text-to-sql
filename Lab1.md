@@ -8,10 +8,9 @@
 In this lab, you will create the data foundation of the Text-to-SQL application. You will provision an Azure SQL Server and an Azure SQL Database through the Azure Portal, configure firewall rules, and set up the database schema with sample data using the built-in Query Editor.
 
 ## Objectives
-- Create an Azure Resource Group
 - Provision an Azure SQL Server with Microsoft Entra authentication
 - Create an Azure SQL Database
-- Configure firewall rules
+- Configure firewall rules 
 - Create schema, tables, and insert sample data
 
 
@@ -56,38 +55,33 @@ The Azure SQL Server is the logical server that hosts your database. You will co
 
 ### Steps
 
-**Step 1:** In the Azure Portal search bar, type **SQL servers** and select it.
+**Step 1:** In the azure portal go to the **Azure SQL**, **Select Azure Logical server(1)**.
 
-**Step 2:** Click **+ Create**.
+**Step 2:** Click **Create(2)**.
+![](./Media/Lab1/image1.png)
+
 
 **Step 3:** On the **Basics** tab, fill in:
 - **Subscription:** Your subscription
-- **Resource Group:** `textsql-rg`
-- **Server Name:** `textsql-sqlserver`
-- **Region:** `West US`
-- **Authentication Method:** Select **Use Microsoft Entra-only authentication**
+- **Resource Group:** `Your resource group (textsql-rg)`
+- **Server Name:** `textsql-sqlserver`(1)
+- **Region:** `West US`(2)
+- **Authentication Method:** Select **Use Microsoft Entra-only authentication**(3)
 
-**Step 4:** Under **Set Microsoft Entra admin**, click **Set admin**.
 
-**Step 5:** Search for your Azure account email, select it, and click **Select**.
 
-📸 **Screenshot Placeholder:**
-```
-[INSERT SCREENSHOT: SQL Server Basics tab showing server name textsql-sqlserver and Entra-only auth selected]
-```
 
-**Step 6:** Click **Review + Create**, then click **Create**.
 
-**Step 7:** Wait for deployment to complete (2–3 minutes).
+![](./Media/Lab1/image2.png)
 
-**Step 8:** Click **Go to resource** to open the SQL Server.
+**Step 4:** After filling all the details, Click **Review + Create then click Create**.
 
-📸 **Screenshot Placeholder:**
-```
-[INSERT SCREENSHOT: SQL Server overview page showing textsql-sqlserver.database.windows.net]
-```
+**Step 5:** Wait for deployment to complete (2–3 minutes).
 
-> ✅ **Verify:** Server status shows **Available** and Authentication shows **Microsoft Entra-only**
+**Step 6:** Click **Go to resource** to open the SQL Server.
+![](./Media/Lab1/image3.png)
+
+> ✅ **Verify:** Server status shows **Available** and Microsoft Entra Admin **Configured**
 
 ---
 
@@ -98,18 +92,14 @@ By default, Azure SQL Server blocks all external connections. You need to allow 
 
 ### Steps
 
-**Step 1:** Inside your SQL Server (`textsql-sqlserver`), go to **Settings → Networking** in the left menu.
+**Step 1:** Inside your SQL Server (`textsql-sqlserver`), go to **Settings → Security → Networking** in the left menu.
 
-**Step 2:** Under **Firewall rules**, find the toggle **Allow Azure services and resources to access this server** and set it to **Yes**.
+**Step 2:** Under **Firewall rules**, find the toggle **Allow Azure services and resources to access this server(2)** and set it to **Yes**.
 
-**Step 3:** Click **+ Add your client IPv4 address** to allow your local machine.
+**Step 3:** Click **+ Add your client IPv4 address(1)** to allow your local machine.
+![](./Media/Lab1/image4.png)
 
-📸 **Screenshot Placeholder:**
-```
-[INSERT SCREENSHOT: SQL Server Networking page showing firewall rules with Allow Azure services = YES]
-```
-
-**Step 4:** Click **Save**.
+**Step 4:** Click **Save(3)**.
 
 > ✅ **Verify:** You see a green success notification "Saved firewall rules"
 
@@ -122,40 +112,33 @@ The SQL Database is where your actual data lives — products, customers, and sa
 
 ### Steps
 
-**Step 1:** In the Azure Portal search bar, type **SQL databases** and select it.
-
-**Step 2:** Click **+ Create**.
+**Step 1:** Inside the database server (`textsql-sqlserver`), click **+ Create database** at the top.
+![](./Media/Lab1/image5.png)
 
 **Step 3:** On the **Basics** tab, fill in:
 - **Subscription:** Your subscription
-- **Resource Group:** `textsql-rg`
-- **Database Name:** `textsqldb`
-- **Server:** Select `textsql-sqlserver`
-- **Want to use SQL elastic pool?:** No
-- **Workload environment:** Select **Development**
+- **Resource Group:** Already selected
+- **Database Name(1):** `textsqldb`
+- **Server:** It will Select Already created server `textsql-sqlserver`
+- **Want to use SQL elastic pool?(2):** No
+- **Workload environment(3):** Select **Development**
 
-**Step 4:** Under **Compute + Storage**, click **Configure database**.
+**Step 4:** Under **Compute + Storage(4)**, click **Configure database**.
 - Select **Basic** or **General Purpose (Serverless)**
 - Click **Apply**
 
-**Step 5:** Under **Backup storage redundancy**, select **Locally-redundant backup storage**.
+**Step 5:** Under **Backup storage redundancy(5)**, select **Locally-redundant backup storage**.
 
-📸 **Screenshot Placeholder:**
-```
-[INSERT SCREENSHOT: SQL Database Basics tab showing database name textsqldb and server textsql-sqlserver]
-```
 
-**Step 6:** Click **Review + Create**, then click **Create**.
+
+**Step 6:** Click **Review + Create(6)**, then click **Create**.
 
 **Step 7:** Wait for deployment (2–3 minutes), then click **Go to resource**.
 
-📸 **Screenshot Placeholder:**
-```
-[INSERT SCREENSHOT: SQL Database overview page showing textsqldb status = Online]
-```
+![](./Media/Lab1/image6.png)
 
 > ✅ **Verify:** Database status shows **Online**
-
+![](./Media/Lab1/image7.png)
 ---
 
 ## Task 1.5 — Create Schema, Tables & Insert Sample Data
@@ -165,26 +148,28 @@ Now that the database is ready, you will use the Azure Portal's built-in **Query
 
 ### Steps
 
-**Step 1:** Inside `textsqldb`, click **Query editor (preview)** in the left menu.
+**Step 1:** Inside `textsqldb`, click **Query editor (preview)(1)** in the left menu.
 
-**Step 2:** Sign in using **Active Directory authentication** and click **OK**.
+**Step 2:** Sign in using **Microsoft Entra authentication(2)** and click **Connect as(3) (user)**.
+![](./Media/Lab1/image8.png)
 
-📸 **Screenshot Placeholder:**
-```
-[INSERT SCREENSHOT: Query Editor login screen]
-```
 
-**Step 3:** In the query window, paste and run the following SQL to create the schema:
+**Step 3:** In the query window,Click on New Query and paste and run the following SQL to create the schema:
 
 ```sql
 -- Create Schema
 IF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'SalesLT')
 EXEC('CREATE SCHEMA SalesLT')
 ```
-
+![](./Media/Lab1/image9.png)
 Click **▶ Run**.
 
-**Step 4:** Clear the query window, paste the following, and click **▶ Run**:
+```
+If it runs successfully, you will see " Query executed successfully" in the Message pane. This means the `SalesLT` schema has been created.
+```
+![](./Media/Lab1/image10.png)
+
+**Step 4:** Click on new query, paste the following, and click **▶ Run**:
 
 ```sql
 -- Create Customer Table
@@ -225,13 +210,10 @@ CREATE TABLE SalesLT.SalesOrderDetail (
     ModifiedDate       DATETIME DEFAULT GETDATE()
 )
 ```
+![](./Media/Lab1/image11.png)
 
-📸 **Screenshot Placeholder:**
-```
-[INSERT SCREENSHOT: Query Editor showing CREATE TABLE statements and successful Results pane]
-```
 
-**Step 5:** Clear the window, paste the following, and click **▶ Run**:
+**Step 5:** Click on new query,paste the following, and click **▶ Run**:
 
 ```sql
 -- Insert Customers
@@ -273,10 +255,7 @@ VALUES
 (1005, 1, 9,  129.99, 0.00,  129.99)
 ```
 
-📸 **Screenshot Placeholder:**
-```
-[INSERT SCREENSHOT: Query Editor showing INSERT statements with "10 rows affected" in Results pane]
-```
+![](./Media/Lab1/image12.png)
 
 **Step 6:** Verify your data by running:
 
@@ -286,10 +265,7 @@ SELECT * FROM SalesLT.Customer
 SELECT * FROM SalesLT.SalesOrderDetail
 ```
 
-📸 **Screenshot Placeholder:**
-```
-[INSERT SCREENSHOT: Query Editor Results showing product rows including Mountain Bike Pro, Road Bike Elite etc.]
-```
+![](./Media/Lab1/image13.png)
 
 > ✅ **Verify:** All 3 tables return data — 5 customers, 10 products, 10 order lines
 
