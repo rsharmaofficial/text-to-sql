@@ -73,6 +73,9 @@ Now you will attach the `textsql-identity` to your App Service. Once attached, t
 
 ![](./Media/Lab3/image6.png)
 
+**Step 6:** In the System Assigned option turn the status to **On** and click **Save**.
+
+![](./Media/Lab3/image14.png)
 
 > ✅ **Verify:** `textsql-identity` appears under User assigned identities with Status = Assigned
 
@@ -157,7 +160,30 @@ WHERE name = 'textsql-identity'
 
 ![](./Media/Lab3/image13.png)
 
+**Step 5:** assign :
+
 > ✅ **Verify:** Query returns `textsql-identity` with `type_desc = EXTERNAL_USER`
+
+**Step 6:** The App Service's System Assigned Managed Identity also needs 
+access to the database to authenticate successfully. In the query window, 
+run the following SQL:
+```sql
+-- Create a user for the App Service System Assigned Identity
+CREATE USER [textsql-webapp] FROM EXTERNAL PROVIDER;
+
+-- Grant the user read and write permissions
+ALTER ROLE db_datareader ADD MEMBER [textsql-webapp];
+ALTER ROLE db_datawriter ADD MEMBER [textsql-webapp];
+```
+![](./Media/Lab3/image16.png)
+
+**Step 7:** Verify the user was created by running:
+```sql
+SELECT name, type_desc FROM sys.database_principals
+WHERE name = 'textsql-webapp'
+```
+
+> ✅ **Verify:** Query returns `textsql-webapp` with `type_desc = EXTERNAL_USER`
 
 ---
 

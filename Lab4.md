@@ -242,6 +242,7 @@ python3 -m pip install -r /home/site/wwwroot/requirements.txt
 echo "Packages installed. Starting app..."
 python3 -m gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.0:8000
 ```
+![](./Media/Lab4/image4.png)
 
 ---
 
@@ -275,7 +276,7 @@ You will zip the application files and deploy them to Azure App Service using th
 
 ### Steps
 
-**Step 1:** Open **PowerShell** and create the deployment zip:
+**Step 1:** Open **PowerShell Terminal** and create the deployment zip:
 
 ```powershell
 cd C:\Users\YourName\textsql-app
@@ -289,12 +290,9 @@ Compress-Archive -Path main.py, requirements.txt, startup.sh -DestinationPath ap
 Get-Item app.zip
 ```
 
-📸 **Screenshot Placeholder:**
-```
-[INSERT SCREENSHOT: PowerShell showing app.zip created successfully with file size]
-```
+![](./Media/Lab4/image5.png)
 
-**Step 3:** Open **Git Bash** and deploy using Azure CLI:
+**Step 3:** Open **Git Bash** in your vscode terminal  and deploy using Azure CLI:
 
 ```bash
 az webapp deploy \
@@ -304,22 +302,8 @@ az webapp deploy \
   --type zip
 ```
 
-**Step 4:** Wait for the command to complete. You should see:
 
-```json
-{
-  "complete": true,
-  "status": 4,
-  "deployer": "OneDeploy"
-}
-```
-
-📸 **Screenshot Placeholder:**
-```
-[INSERT SCREENSHOT: Git Bash terminal showing successful deployment output with complete: true]
-```
-
-**Step 5:** Restart the App Service to apply the new code:
+**Step 4:** Restart the App Service to apply the new code:
 
 ```bash
 az webapp restart \
@@ -355,11 +339,6 @@ Application startup complete.
 Uvicorn running on http://0.0.0.0:8000
 ```
 
-📸 **Screenshot Placeholder:**
-```
-[INSERT SCREENSHOT: Terminal showing log stream with "Application startup complete" message]
-```
-
 **Step 3:** If you see errors, check the most common issues:
 
 | Error | Fix |
@@ -379,25 +358,21 @@ With the application running, open the web interface and test it by asking natur
 
 ### Steps
 
-**Step 1:** Open your browser and navigate to:
+**Step 1:** Open your browser and navigate to `textsql-webapp`and copy the URL or click on the url it will open in the new tab:
+![](./Media/Lab4/image7.png)
 ```
 https://textsql-webapp.azurewebsites.net
 ```
 
-📸 **Screenshot Placeholder:**
-```
-[INSERT SCREENSHOT: Browser showing the Text to SQL web interface with input field and Ask button]
-```
+![](./Media/Lab4/image8.png)
+
 
 **Step 2:** Type the following question and click **Ask**:
 ```
 Give me the top 5 selling products
 ```
+![](./Media/Lab4/image9.png)
 
-📸 **Screenshot Placeholder:**
-```
-[INSERT SCREENSHOT: App showing Generated SQL and the Answer with actual product names from database]
-```
 
 **Step 3:** Verify the response shows:
 - **Generated SQL** — a valid SELECT query with TOP 5
@@ -412,10 +387,7 @@ Give me the top 5 selling products
 | `Which customer placed the most orders?` | Returns customer name from SalesOrderDetail |
 | `What is the most expensive product?` | Returns Mountain Bike Pro at $1099.99 |
 
-📸 **Screenshot Placeholder:**
-```
-[INSERT SCREENSHOT: App showing response to "How many customers do we have?" with answer = 5 customers]
-```
+![](./Media/Lab4/image10.png)
 
 > ✅ **Verify:** App returns real data from your Azure SQL Database for all test questions
 
@@ -432,26 +404,13 @@ As a final verification step, confirm everything is connected and running correc
 
 **Step 2:** Click **Overview** — verify Status = **Running**.
 
-📸 **Screenshot Placeholder:**
-```
-[INSERT SCREENSHOT: App Service Overview showing Status = Running and the app URL]
-```
+![](./Media/Lab4/image11.png)
 
-**Step 3:** Click **Monitoring → Log stream** to see live logs from the portal.
+**Step 3:** Click **Log stream** to see live logs from the portal in the left pane.
 
-📸 **Screenshot Placeholder:**
-```
-[INSERT SCREENSHOT: App Service Log Stream in Azure Portal showing live request logs]
-```
 
-**Step 4:** Click **Application Insights** in the left menu → Click **Live Metrics** to see real-time performance.
-
-📸 **Screenshot Placeholder:**
-```
-[INSERT SCREENSHOT: Application Insights Live Metrics showing incoming requests and response times]
-```
-
-> ✅ **Verify:** App Service is Running, logs are streaming, Application Insights shows live metrics
+![](./Media/Lab4/image13.png)
+> ✅ **Verify:** App Service is Running, logs are streaming.
 
 ---
 
@@ -466,7 +425,6 @@ As a final verification step, confirm everything is connected and running correc
 - [ ] Test question "Give me top 5 selling products" returns real product names
 - [ ] All 4 test questions return correct answers from the database
 - [ ] App Service status = Running in Azure Portal
-- [ ] Application Insights showing live metrics
 
 ---
 
@@ -504,7 +462,6 @@ User sees Natural Language Answer
 | App Service Plan | `textsql-asp` | Compute resources |
 | App Service | `textsql-webapp` | Hosts the web application |
 | Managed Identity | `textsql-identity` | Passwordless authentication |
-| Application Insights | `textsql-insights` | Monitoring |
 
 ### Your Application URL
 ```
@@ -512,5 +469,3 @@ https://textsql-webapp.azurewebsites.net
 ```
 
 ---
-
-> 📌 **Note:** All screenshot placeholders marked with `[INSERT SCREENSHOT: ...]` should be replaced with actual screenshots taken during the lab steps.
