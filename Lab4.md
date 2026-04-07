@@ -12,7 +12,7 @@ In this lab, you will prepare the application code files, create the deployment 
 - Test the application with natural language queries
 
 ## Estimated Duration
-⏱ 45 Minutes
+⏱ 60 Minutes
 
 ---
 

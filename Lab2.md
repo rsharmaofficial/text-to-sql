@@ -12,7 +12,7 @@ In this lab, you will provision the two remaining Azure services: Azure OpenAI (
 - Set all required environment variables
 
 ## Estimated Duration
-⏱ 45 Minutes
+⏱ 60 Minutes
 
 ---
 

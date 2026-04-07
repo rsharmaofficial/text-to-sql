@@ -11,7 +11,7 @@ In this lab, you will implement enterprise-grade security using Azure Managed Id
 - Grant SQL Database access via identity configuration
 
 ## Estimated Duration
-⏱ 30 Minutes
+⏱ 45 Minutes
 
 ---
 

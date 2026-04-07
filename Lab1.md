@@ -1,7 +1,7 @@
 
 # 🧪 LAB 1 — Provisioning Azure SQL Server & Database
 ## Estimated Duration
-⏱ 50 Minutes
+⏱ 55 Minutes
 
 ## Overview
 
