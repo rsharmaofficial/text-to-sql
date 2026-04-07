@@ -9,10 +9,10 @@
 
 | Lab | Title | Duration |
 |-----|-------|----------|
-| Lab 1 | Provisioning Azure SQL Server & Database | 45 mins |
-| Lab 2 | Creating Azure OpenAI Service & App Service | 45 mins |
-| Lab 3 | Configuring Security & Managed Identity | 30 mins |
-| Lab 4 | Deploying the Application & Testing | 45 mins |
+| Lab 1 | Provisioning Azure SQL Server & Database | 55 mins |
+| Lab 2 | Creating Azure OpenAI Service & App Service | 60 mins |
+| Lab 3 | Configuring Security & Managed Identity | 45 mins |
+| Lab 4 | Deploying the Application & Testing | 60 mins |
 
 ---
 
