@@ -25,15 +25,16 @@ Create a dedicated folder on your local machine and save all the application fil
 
 ### Steps
 
-**Step 1:** Open your VS Code on your local machine, create a new folder:
+**Step 1:** Open your VS Code on your local machine, Create a new folder from the terminal and navigate into it:
 ```
-C:\Users\YourName\textsql-app\
+C:\Users\YourName/> mkdir textsql-app
+C:\Users\YourName/> cd textsql-app
 ```
 
 **Step 2:** Inside that folder, create the following 3 files using VS Code or Notepad:
-- `main.py` — paste the full code from Task 4.1
-- `requirements.txt` — paste the requirements from Task 4.1
-- `startup.sh` — paste the startup script from Task 4.1
+- `main.py`
+- `requirements.txt`
+- `startup.sh` 
 
 ![](./Media/Lab4/image1.png)
 
