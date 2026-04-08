@@ -79,7 +79,6 @@ Creating the Azure OpenAI resource alone is not enough — you must deploy a spe
 - **Deployment name:** `gpt-4-1`
 - **Deployment Type:** Global Standard
 - **Model version:** Latest available
-- **Deployment type:** Standard
 - **Tokens per minute (TPM):** 10K or higher
 
 ![](./Media/Lab2/image7.png)
@@ -168,7 +167,7 @@ The App Service is the actual web application host. It will run your Python Fast
 ![](./Media/Lab2/image15.png)
 
 
-**Step 4:** Click **Next: Database** leave default → Deployment** → leave defaults → click **Next: Networking** → leave defaults.
+**Step 4:** Click **Next: Database** leave default → **Deployment** leave defaults → click **Next: Networking** leave defaults.
 
 
 **Step 6:** Click **Review + Create**, then click **Create**.

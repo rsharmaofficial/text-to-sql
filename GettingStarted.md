@@ -1,7 +1,7 @@
 # 🔷 Microsoft Azure — Function Call Dynamic Query
 ## Hands-On Lab Guide
 
-> **Total Labs:** 4 | **Estimated Duration:** 3–4 Hours | **Level:** Intermediate
+> **Total Labs:** 4 | **Estimated Duration:** 3.5–4 Hours | **Level:** Intermediate
 
 ---
 

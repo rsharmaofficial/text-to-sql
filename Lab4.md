@@ -16,7 +16,32 @@ In this lab, you will prepare the application code files, create the deployment 
 
 ---
 
-## Task 4.1 — Review Application Files
+
+
+## Task 4.1 — Create Application Files Locally
+
+**Description:**
+Create a dedicated folder on your local machine and save all the application files.
+
+### Steps
+
+**Step 1:** Open your VS Code on your local machine, create a new folder:
+```
+C:\Users\YourName\textsql-app\
+```
+
+**Step 2:** Inside that folder, create the following 3 files using VS Code or Notepad:
+- `main.py` — paste the full code from Task 4.1
+- `requirements.txt` — paste the requirements from Task 4.1
+- `startup.sh` — paste the startup script from Task 4.1
+
+![](./Media/Lab4/image1.png)
+
+> ✅ **Verify:** All 3 files exist in your local folder
+
+---
+
+## Task 4.2 — Review Application Files
 
 **Description:**
 Before deploying, review the four files that make up your application. Each file has a specific role in the Text-to-SQL pipeline.
@@ -243,29 +268,6 @@ echo "Packages installed. Starting app..."
 python3 -m gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.0:8000
 ```
 ![](./Media/Lab4/image4.png)
-
----
-
-## Task 4.2 — Create Application Files Locally
-
-**Description:**
-Create a dedicated folder on your local machine and save all the application files.
-
-### Steps
-
-**Step 1:** Open your VS Code on your local machine, create a new folder:
-```
-C:\Users\YourName\textsql-app\
-```
-
-**Step 2:** Inside that folder, create the following 3 files using VS Code or Notepad:
-- `main.py` — paste the full code from Task 4.1
-- `requirements.txt` — paste the requirements from Task 4.1
-- `startup.sh` — paste the startup script from Task 4.1
-
-![](./Media/Lab4/image1.png)
-
-> ✅ **Verify:** All 3 files exist in your local folder
 
 ---
 
