@@ -1,4 +1,4 @@
-# 🔷 Microsoft Azure — Text-to-SQL Web Application
+# 🔷 Microsoft Azure — Function Call Dynamic Query
 ## Hands-On Lab Guide
 
 > **Total Labs:** 4 | **Estimated Duration:** 3–4 Hours | **Level:** Intermediate
@@ -109,12 +109,4 @@ Step 9  →  User sees the final answer displayed on the web page
 - Active Microsoft Azure subscription with resource creation permissions
 - Access to [Azure Portal](https://portal.azure.com)
 - Azure CLI installed on your local machine
-- Visual Studio Code or any code editor
- 
-### Helpful But Not Required
- 
-- Prior experience with Azure services
-- Knowledge of FastAPI or Flask web frameworks
-- Experience with Azure OpenAI or other LLM APIs
- 
----
+- Visual Studio Code or any code editor for Python development
