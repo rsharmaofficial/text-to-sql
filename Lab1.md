@@ -235,7 +235,17 @@ SELECT * FROM SalesLT.Customer
 SELECT * FROM SalesLT.SalesOrderDetail
 ```
 
-![](./Media/Lab1/image13.png)
+![](./Media/Lab1/image14.png)
+
+```sql
+SELECT * FROM SalesLT.Customer
+```
+![](./Media/Lab1/image15.png)
+
+```sql
+SELECT * FROM SalesLT.SalesOrderDetail
+```
+![](./Media/Lab1/image16.png)
 
 > ✅ **Verify:** All 3 tables return data — 5 customers, 10 products, 10 order lines
 
