@@ -250,8 +250,6 @@ SELECT * FROM SalesLT.SalesOrderDetail
 ---
 
 ### ✅ Lab 1 Complete — Checklist
-
-- [ ] Resource Group `textsql-rg` created in West US
 - [ ] SQL Server `textsql-sqlserver` created with Entra-only auth
 - [ ] Firewall rule — Allow Azure services = YES
 - [ ] SQL Database `textsqldb` created and Online
