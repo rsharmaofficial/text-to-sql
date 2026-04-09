@@ -231,8 +231,6 @@ VALUES
 
 ```sql
 SELECT * FROM SalesLT.Product
-SELECT * FROM SalesLT.Customer
-SELECT * FROM SalesLT.SalesOrderDetail
 ```
 
 ![](./Media/Lab1/image14.png)
