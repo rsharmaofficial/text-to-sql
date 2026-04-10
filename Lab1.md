@@ -18,10 +18,10 @@ In this lab, you will create the data foundation of the  Function Call Dynamic Q
 ---
 
 
-## Task 1  Create Azure SQL Server
+## Task 1:  Create Azure SQL Server
 
 **Description:**
-The Azure SQL Server is the logical server that hosts your database. You will configure it with Microsoft Entra-only authentication, which means no SQL username/password only secure Azure AD identity-based access.
+The Azure SQL Server is the logical server that hosts your database. You will configure it with Microsoft Entra-only authentication, which means no SQL username/password, only secure Azure AD identity-based access.
 
 ### Steps
 
@@ -55,7 +55,7 @@ The Azure SQL Server is the logical server that hosts your database. You will co
 
 ---
 
-## Task 2  Configure SQL Server Firewall
+## Task 2:  Configure SQL Server Firewall
 
 **Description:**
 By default, Azure SQL Server blocks all external connections. You need to allow Azure services (so your App Service can connect) and optionally your local machine (for testing from your computer).
@@ -71,14 +71,14 @@ By default, Azure SQL Server blocks all external connections. You need to allow 
 
 **2.4:** Click **Save(3)**.
 
->  **Verify:** You see a green success notification "Saved firewall rules"
+>  **Verify:** You see a green success notification "Saved firewall rules."
 
 ---
 
-## Task 3  Create Azure SQL Database
+## Task 3:  Create Azure SQL Database
 
 **Description:**
-The SQL Database is where your actual data lives  products, customers, and sales records. You will create it under the SQL Server you just provisioned.
+The SQL Database is where your actual data lives:  products, customers, and sales records. You will create it under the SQL Server you just provisioned.
 
 ### Steps
 
@@ -89,8 +89,8 @@ The SQL Database is where your actual data lives  products, customers, and sales
 - **Subscription:** Your subscription
 - **Resource Group:** Already selected
 - **Database Name(1):** `textsqldb`
-- **Server:** It will Select Already created server `textsql-sqlserver`
-- **Want to use SQL elastic pool?(2):** No
+- **Server:** It will select the already created server `textsql-sqlserver`
+- **Want to use SQL elastic pool? (2):** No
 - **Workload environment(3):** Select **Development**
 
 **3.3:** Under **Compute + Storage(4)**, click **Configure database**.
@@ -111,7 +111,7 @@ The SQL Database is where your actual data lives  products, customers, and sales
 ![](./Media/Lab1/image7.png)
 ---
 
-## Task 4  Create Schema, Tables & Insert Sample Data
+## Task 4: Create Schema, Tables & Insert Sample Data
 
 **Description:**
 Now that the database is ready, you will use the Azure Portal's built-in **Query Editor** to create your database schema (`SalesLT`), three tables, and insert sample data  all without any external tools.
@@ -124,7 +124,7 @@ Now that the database is ready, you will use the Azure Portal's built-in **Query
 ![](./Media/Lab1/image8.png)
 
 
-**4.3:** In the query window,Click on New Query and paste and run the following SQL to create the schema:
+**4.3:** In the query window, click on New Query and paste and run the following SQL to create the schema:
 
 ```sql
 -- Create Schema
@@ -133,14 +133,14 @@ EXEC('CREATE SCHEMA SalesLT')
 ```
 ![](./Media/Lab1/image9.png)
 
-Click **▶ Run**.
+Click ** Run**.
 
 ```
 If it runs successfully, you will see " Query executed successfully" in the Message pane. This means the `SalesLT` schema has been created.
 ```
 ![](./Media/Lab1/image10.png)
 
-**4.4:** Click on new query, paste the following, and click **▶ Run**:
+**4.4:** Click on new query, paste the following, and click ** Run**:
 
 ```sql
 -- Create Customer Table
@@ -184,7 +184,7 @@ CREATE TABLE SalesLT.SalesOrderDetail (
 ![](./Media/Lab1/image11.png)
 
 
-**4.5:** Click on new query, paste the following, and click **▶ Run**:
+**4.5:** Click on new query, paste the following, and click ** Run**:
 
 ```sql
 -- Insert Customers
