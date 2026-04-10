@@ -1,4 +1,4 @@
-# 🧪 LAB 2 — Creating Azure OpenAI Service & App Service
+# LAB 2: Creating Azure OpenAI Service & App Service
 
 ## Overview
 
@@ -16,20 +16,20 @@ In this lab, you will provision the two remaining Azure services: Azure OpenAI (
 
 ---
 
-## Task 2.1 — Create Azure OpenAI Service
+## Task 1: Create Azure OpenAI Service
 
 **Description:**
 Azure OpenAI Service gives you access to OpenAI's GPT-4.1 model through Microsoft's secure cloud. This is the AI brain of your application — it reads your question, understands your database schema, and generates the correct SQL query automatically.
 
 ### Steps
 
-**Step 1:** In the Azure Portal search bar, type **OpenAI** and select it.
+**1.1:** In the Azure Portal search bar, type **OpenAI** and select it.
 ![](./Media/Lab2/image1.png)
 
-**Step 2:** On the next screen make sure you have selected **Azure OpenAI(1)** Then click on **Create(2)** and select **Azure OpenAI(3)**.
+**1.2:** On the next screen make sure you have selected **Azure OpenAI(1)** Then click on **Create(2)** and select **Azure OpenAI(3)**.
 ![](./Media/Lab2/image2.png)
 
-**Step 3:** On the **Basics** tab, fill in:
+**1.3:** On the **Basics** tab, fill in:
 - **Subscription:** Your subscription
 - **Resource Group:** `textsql-rg`
 - **Region:** `West US` (best GPT-4.1 availability)
@@ -38,44 +38,44 @@ Azure OpenAI Service gives you access to OpenAI's GPT-4.1 model through Microsof
 ![](./Media/Lab2/image3.png)
 
 
-**Step 4:** Click **Next** on the Network tab (leave defaults — All networks).
+**1.4:** Click **Next** on the Network tab (leave defaults — All networks).
 
-**Step 5:** Click **Next** on the Tags tab.
+**1.5:** Click **Next** on the Tags tab.
 
-**Step 6:** Click **Review + Create**, then click **Create**.
+**1.6:** Click **Review + Create**, then click **Create**.
 
-**Step 7:** Wait for deployment (2–3 minutes), then click **Go to resource**.
+**1.7:** Wait for deployment (2–3 minutes), then click **Go to resource**.
 
 
 ![](./Media/Lab2/image4.png)
 
-> ✅ **Verify:** OpenAI resource shows status **Active**
+>  **Verify:** OpenAI resource shows status **Active**
 
 ---
 
-## Task 2.2 — Deploy GPT-4.1 Model
+## Task 2: Deploy GPT-4.1 Model
 
 **Description:**
 Creating the Azure OpenAI resource alone is not enough — you must deploy a specific AI model inside it. You will deploy GPT-4.1, which will be the model used by your application to generate SQL queries and format natural language answers.
 
 ### Steps
 
-**Step 1:** Inside `textsql-openai`, click **Go to Foundary Portal**.
+**1.1:** Inside `textsql-openai`, click **Go to Foundary Portal**.
 
 ```This opens the Foundary Portal in a new tab, which is where you manage your OpenAI models and deployments.```
 
-**Step 2:** Under the shared resources section in the left menu, click on **Deployments**.
+**1.2:** Under the shared resources section in the left menu, click on **Deployments**.
 
-**Step 3:** Click **+ Deploy model(1)**, then select **Deploy base model(2)**.
+**1.3:** Click **+ Deploy model(1)**, then select **Deploy base model(2)**.
 
 ![](./Media/Lab2/image5.png)
 
-**Step 4:** In the model list, search for **gpt-4.1(1)** and select **gpt-4.1(2)**.
+**1.4:** In the model list, search for **gpt-4.1(1)** and select **gpt-4.1(2)**.
 ![](./Media/Lab2/image6.png)
 
-**Step 5:** Click **Confirm(3)**.
+**1.5:** Click **Confirm(3)**.
 
-**Step 6:** On the deployment dialog, Click on **Customize** fill in:
+**1.6:** On the deployment dialog, Click on **Customize** fill in:
 - **Deployment name:** `gpt-4-1`
 - **Deployment Type:** Global Standard
 - **Model version:** Latest available
@@ -83,7 +83,7 @@ Creating the Azure OpenAI resource alone is not enough — you must deploy a spe
 
 ![](./Media/Lab2/image7.png)
 
-**Step 6:** Click **Deploy** and wait for status to show **Succeeded**.
+**1.7:** Click **Deploy** and wait for status to show **Succeeded**.
 ![](./Media/Lab2/image8.png)
 
 
@@ -91,16 +91,16 @@ Creating the Azure OpenAI resource alone is not enough — you must deploy a spe
 
 ---
 
-## Task 2.3 — Note Your OpenAI Credentials
+## Task 3 — Note Your OpenAI Credentials
 
 **Description:**
 You will need the OpenAI endpoint URL and API key when configuring your App Service environment variables. Save these values now.
 
 ### Steps
 
-**Step 1:** Inside `textsql-openai`, go to **Resource Management → Keys and Endpoint** in the left menu.
+**1.1:** Inside `textsql-openai`, go to **Resource Management → Keys and Endpoint** in the left menu.
 
-**Step 2:** Copy and save the following:
+**1.2:** Copy and save the following:
 - **Endpoint:** `https://textsql-openai.openai.azure.com/`
 - **KEY 1:** (copy the full key value)
 
@@ -111,20 +111,20 @@ You will need the OpenAI endpoint URL and API key when configuring your App Serv
 
 ---
 
-## Task 2.4 — Create App Service Plan
+## Task 4 — Create App Service Plan
 
 **Description:**
 The App Service Plan defines the compute resources — CPU, RAM, and pricing tier — that power your web application. Think of it as the "server" that your App Service runs on.
 
 ### Steps
 
-**Step 1:** In the Azure Portal search bar, type **App Service plans** and select it.
+**1.1:** In the Azure Portal search bar, type **App Service plans** and select it.
 
 ![](./Media/Lab2/image10.png)
 
-**Step 2:** Click **+ Create**.
+**1.2:** Click **+ Create**.
 
-**Step 3:** Fill in:
+**1.3:** Fill in:
 - **Subscription:** Your subscription
 - **Resource Group:** `textsql-rg`
 - **Name:** `textsql-asp`
@@ -134,27 +134,27 @@ The App Service Plan defines the compute resources — CPU, RAM, and pricing tie
 ![](./Media/Lab2/image11.png)
 
 
-**Step 4:** Click **Review + Create**, then click **Create**.
+**1.4:** Click **Review + Create**, then click **Create**.
 
-> ✅ **Verify:** App Service Plan `textsql-asp` created with OS = Linux
+> **Verify:** App Service Plan `textsql-asp` created with OS = Linux
 ![](./Media/Lab2/image12.png)
 ---
 
-## Task 2.5 — Create App Service
+## Task 5 — Create App Service
 
 **Description:**
 The App Service is the actual web application host. It will run your Python FastAPI application 24/7 and serve it via a public HTTPS URL. All users will access your application through this URL.
 
 ### Steps
 
-**Step 1:** In the Azure Portal search bar, type **App Services** and select it.
+**1.1:** In the Azure Portal search bar, type **App Services** and select it.
 ![](./Media/Lab2/image13.png)
 
-**Step 2:** Click **+ Create**, then select **Web App**.
+**1.2:** Click **+ Create**, then select **Web App**.
 
 ![](./Media/Lab2/image14.png)
 
-**Step 3:** On the **Basics** tab, fill in:
+**1.3:** On the **Basics** tab, fill in:
 - **Subscription:** Your subscription
 - **Resource Group:** `textsql-rg`
 - **Name(1):** `textsql-webapp`
@@ -167,12 +167,12 @@ The App Service is the actual web application host. It will run your Python Fast
 ![](./Media/Lab2/image15.png)
 
 
-**Step 4:** Click **Next: Database** leave default → **Deployment** leave defaults → click **Next: Networking** leave defaults.
+**1.4:** Click **Next: Database** leave default → **Deployment** leave defaults → click **Next: Networking** leave defaults.
 
 
-**Step 6:** Click **Review + Create**, then click **Create**.
+**1.5:** Click **Review + Create**, then click **Create**.
 
-**Step 7:** Wait for deployment, then click **Go to resource**.
+**1.6:** Wait for deployment, then click **Go to resource**.
 ![](./Media/Lab2/image16.png)
 
 >App Service overview showing textsql-webapp URL: https://textsql-webapp.azurewebsites.net]
@@ -182,16 +182,16 @@ The App Service is the actual web application host. It will run your Python Fast
 
 ---
 
-## Task 2.6 — Configure Environment Variables
+## Task 6 — Configure Environment Variables
 
 **Description:**
 Your Python application reads its configuration from environment variables — these are secure key-value pairs stored on the App Service. You will add all the connection details your app needs to talk to Azure OpenAI and Azure SQL.
 
 ### Steps
 
-**Step 1:** Inside `textsql-webapp`, go to **Settings → Environment Variables** in the left menu.
+**1.1:** Inside `textsql-webapp`, go to **Settings → Environment Variables** in the left menu.
 
-**Step 2:** Click **+ Add** for each of the following variables one by one and click apply after adding each variable:
+**1.2:** Click **+ Add** for each of the following variables one by one and click apply after adding each variable:
 ![](./Media/Lab2/image17.png)
 
 | Variable Name | Value |
@@ -206,37 +206,37 @@ Your Python application reads its configuration from environment variables — t
 
 
 
-**Step 3:** Click **Apply**, then click **Confirm** to save and restart the app.
+**1.3:** Click **Apply**, then click **Confirm** to save and restart the app.
 ![](./Media/Lab2/image18.png)
 
-> ✅ **Verify:** All 6 environment variables appear in the list and are saved
+>  **Verify:** All 6 environment variables appear in the list and are saved
 
 ---
 
-## Task 2.7 — Set Startup Command
+## Task 7 — Set Startup Command
 
 **Description:**
 Azure App Service needs to know how to start your Python application. You will set the startup command that installs dependencies and launches the FastAPI server using Gunicorn.
 
 ### Steps
 
-**Step 1:** Inside `textsql-webapp`, go to **Settings → Configuration(1)** in the left menu.
+**1.1:** Inside `textsql-webapp`, go to **Settings → Configuration(1)** in the left menu.
 
-**Step 2:** Click the **Stack settings** tab.
+**1.2:** Click the **Stack settings** tab.
 
-**Step 3:** Find **Startup Command(3)** and enter:
+**1.3:** Find **Startup Command(3)** and enter:
 ```
 bash startup.sh
 ```
 ![](./Media/Lab2/image19.png)
 
-**Step 4:** Click **Apply**, then click **Continue**.
+**1.4:** Click **Apply**, then click **Continue**.
 
-> ✅ **Verify:** Startup command saved as `bash startup.sh`
+>  **Verify:** Startup command saved as `bash startup.sh`
 
 ---
 
-### ✅ Lab 2 Complete — Checklist
+### Lab 2 Complete — Checklist
 
 - [ ] Azure OpenAI `textsql-openai` created in East US
 - [ ] GPT-4.1 model deployed with name `gpt-4-1` — Status = Succeeded
