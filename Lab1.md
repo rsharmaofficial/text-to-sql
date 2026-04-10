@@ -1,5 +1,5 @@
 
-# 🧪 LAB 1 — Provisioning Azure SQL Server & Database
+# LAB 1 Provisioning Azure SQL Server & Database
 ## Estimated Duration
 ⏱ 55 Minutes
 
@@ -18,10 +18,10 @@ In this lab, you will create the data foundation of the  Function Call Dynamic Q
 ---
 
 
-## Task 1.1 — Create Azure SQL Server
+## Task 1.1  Create Azure SQL Server
 
 **Description:**
-The Azure SQL Server is the logical server that hosts your database. You will configure it with Microsoft Entra-only authentication, which means no SQL username/password — only secure Azure AD identity-based access.
+The Azure SQL Server is the logical server that hosts your database. You will configure it with Microsoft Entra-only authentication, which means no SQL username/password only secure Azure AD identity-based access.
 
 ### Steps
 
@@ -51,11 +51,11 @@ The Azure SQL Server is the logical server that hosts your database. You will co
 **Step 6:** Click **Go to resource** to open the SQL Server.
 ![](./Media/Lab1/image3.png)
 
-> ✅ **Verify:** Server status shows **Available** and Microsoft Entra Admin **Configured**
+> **Verify:** Server status shows **Available** and Microsoft Entra Admin **Configured**
 
 ---
 
-## Task 1.2 — Configure SQL Server Firewall
+## Task 1.2  Configure SQL Server Firewall
 
 **Description:**
 By default, Azure SQL Server blocks all external connections. You need to allow Azure services (so your App Service can connect) and optionally your local machine (for testing from your computer).
@@ -71,14 +71,14 @@ By default, Azure SQL Server blocks all external connections. You need to allow 
 
 **Step 4:** Click **Save(3)**.
 
-> ✅ **Verify:** You see a green success notification "Saved firewall rules"
+>  **Verify:** You see a green success notification "Saved firewall rules"
 
 ---
 
-## Task 1.3 — Create Azure SQL Database
+## Task 1.3  Create Azure SQL Database
 
 **Description:**
-The SQL Database is where your actual data lives — products, customers, and sales records. You will create it under the SQL Server you just provisioned.
+The SQL Database is where your actual data lives  products, customers, and sales records. You will create it under the SQL Server you just provisioned.
 
 ### Steps
 
@@ -107,14 +107,14 @@ The SQL Database is where your actual data lives — products, customers, and sa
 
 ![](./Media/Lab1/image6.png)
 
-> ✅ **Verify:** Database status shows **Online**
+>  **Verify:** Database status shows **Online**
 ![](./Media/Lab1/image7.png)
 ---
 
-## Task 1.4 — Create Schema, Tables & Insert Sample Data
+## Task 1.4  Create Schema, Tables & Insert Sample Data
 
 **Description:**
-Now that the database is ready, you will use the Azure Portal's built-in **Query Editor** to create your database schema (`SalesLT`), three tables, and insert sample data — all without any external tools.
+Now that the database is ready, you will use the Azure Portal's built-in **Query Editor** to create your database schema (`SalesLT`), three tables, and insert sample data  all without any external tools.
 
 ### Steps
 
@@ -132,6 +132,7 @@ IF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'SalesLT')
 EXEC('CREATE SCHEMA SalesLT')
 ```
 ![](./Media/Lab1/image9.png)
+
 Click **▶ Run**.
 
 ```
@@ -245,17 +246,19 @@ SELECT * FROM SalesLT.SalesOrderDetail
 ```
 ![](./Media/Lab1/image16.png)
 
-> ✅ **Verify:** All 3 tables return data — 5 customers, 10 products, 10 order lines
+>  **Verify:** All 3 tables return data  5 customers, 10 products, 10 order lines
 
 ---
 
-### ✅ Lab 1 Complete — Checklist
+###  Lab 1 Complete  Checklist
+
+- [ ] Resource Group `textsql-rg` created in West US
 - [ ] SQL Server `textsql-sqlserver` created with Entra-only auth
-- [ ] Firewall rule — Allow Azure services = YES
+- [ ] Firewall rule  Allow Azure services = YES
 - [ ] SQL Database `textsqldb` created and Online
 - [ ] Schema `SalesLT` created
 - [ ] Tables `Customer`, `Product`, `SalesOrderDetail` created
-- [ ] Sample data inserted — 5 customers, 10 products, 10 orders
+- [ ] Sample data inserted  5 customers, 10 products, 10 orders
 
 ---
 
