@@ -18,20 +18,20 @@ In this lab, you will create the data foundation of the  Function Call Dynamic Q
 ---
 
 
-## Task 1.1  Create Azure SQL Server
+## Task 1  Create Azure SQL Server
 
 **Description:**
 The Azure SQL Server is the logical server that hosts your database. You will configure it with Microsoft Entra-only authentication, which means no SQL username/password only secure Azure AD identity-based access.
 
 ### Steps
 
-**Step 1:** In the azure portal go to the **Azure SQL**, **Select Azure Logical server(1)**.
+**1.1:** In the azure portal go to the **Azure SQL**, **Select Azure Logical server(1)**.
 
-**Step 2:** Click **Create(2)**.
+**1.2:** Click **Create(2)**.
 ![](./Media/Lab1/image1.png)
 
 
-**Step 3:** On the **Basics** tab, fill in:
+**1.3:** On the **Basics** tab, fill in:
 - **Subscription:** Your subscription
 - **Resource Group:** `Your resource group (textsql-rg)`
 - **Server Name:** `textsql-sqlserver`(1)
@@ -44,48 +44,48 @@ The Azure SQL Server is the logical server that hosts your database. You will co
 
 ![](./Media/Lab1/image2.png)
 
-**Step 4:** After filling all the details, Click **Review + Create then click Create**.
+**1.4:** After filling all the details, Click **Review + Create then click Create**.
 
-**Step 5:** Wait for deployment to complete (2–3 minutes).
+**1.5:** Wait for deployment to complete (2–3 minutes).
 
-**Step 6:** Click **Go to resource** to open the SQL Server.
+**1.6:** Click **Go to resource** to open the SQL Server.
 ![](./Media/Lab1/image3.png)
 
 > **Verify:** Server status shows **Available** and Microsoft Entra Admin **Configured**
 
 ---
 
-## Task 1.2  Configure SQL Server Firewall
+## Task 2  Configure SQL Server Firewall
 
 **Description:**
 By default, Azure SQL Server blocks all external connections. You need to allow Azure services (so your App Service can connect) and optionally your local machine (for testing from your computer).
 
 ### Steps
 
-**Step 1:** Inside your SQL Server (`textsql-sqlserver`), go to **Settings → Security → Networking** in the left menu.
+**2.1:** Inside your SQL Server (`textsql-sqlserver`), go to **Settings → Security → Networking** in the left menu.
 
-**Step 2:** Under **Firewall rules**, find the toggle **Allow Azure services and resources to access this server(2)** and set it to **Yes**.
+**2.2:** Under **Firewall rules**, find the toggle **Allow Azure services and resources to access this server(2)** and set it to **Yes**.
 
-**Step 3:** Click **+ Add your client IPv4 address(1)** to allow your local machine.
+**2.3:** Click **+ Add your client IPv4 address(1)** to allow your local machine.
 ![](./Media/Lab1/image4.png)
 
-**Step 4:** Click **Save(3)**.
+**2.4:** Click **Save(3)**.
 
 >  **Verify:** You see a green success notification "Saved firewall rules"
 
 ---
 
-## Task 1.3  Create Azure SQL Database
+## Task 3  Create Azure SQL Database
 
 **Description:**
 The SQL Database is where your actual data lives  products, customers, and sales records. You will create it under the SQL Server you just provisioned.
 
 ### Steps
 
-**Step 1:** Inside the database server (`textsql-sqlserver`), click **+ Create database** at the top.
+**3.1:** Inside the database server (`textsql-sqlserver`), click **+ Create database** at the top.
 ![](./Media/Lab1/image5.png)
 
-**Step 3:** On the **Basics** tab, fill in:
+**3.2:** On the **Basics** tab, fill in:
 - **Subscription:** Your subscription
 - **Resource Group:** Already selected
 - **Database Name(1):** `textsqldb`
@@ -93,17 +93,17 @@ The SQL Database is where your actual data lives  products, customers, and sales
 - **Want to use SQL elastic pool?(2):** No
 - **Workload environment(3):** Select **Development**
 
-**Step 4:** Under **Compute + Storage(4)**, click **Configure database**.
+**3.3:** Under **Compute + Storage(4)**, click **Configure database**.
 - Select **Basic** or **General Purpose (Serverless)**
 - Click **Apply**
 
-**Step 5:** Under **Backup storage redundancy(5)**, select **Locally-redundant backup storage**.
+**3.4:** Under **Backup storage redundancy(5)**, select **Locally-redundant backup storage**.
 
 
 
-**Step 6:** Click **Review + Create(6)**, then click **Create**.
+**3.5:** Click **Review + Create(6)**, then click **Create**.
 
-**Step 7:** Wait for deployment (2–3 minutes), then click **Go to resource**.
+**3.6:** Wait for deployment (2–3 minutes), then click **Go to resource**.
 
 ![](./Media/Lab1/image6.png)
 
@@ -111,20 +111,20 @@ The SQL Database is where your actual data lives  products, customers, and sales
 ![](./Media/Lab1/image7.png)
 ---
 
-## Task 1.4  Create Schema, Tables & Insert Sample Data
+## Task 4  Create Schema, Tables & Insert Sample Data
 
 **Description:**
 Now that the database is ready, you will use the Azure Portal's built-in **Query Editor** to create your database schema (`SalesLT`), three tables, and insert sample data  all without any external tools.
 
 ### Steps
 
-**Step 1:** Inside `textsqldb`, click **Query editor (preview)(1)** in the left menu.
+**4.1:** Inside `textsqldb`, click **Query editor (preview)(1)** in the left menu.
 
-**Step 2:** Sign in using **Microsoft Entra authentication(2)** and click **Connect as(3) (user)**.
+**4.2:** Sign in using **Microsoft Entra authentication(2)** and click **Connect as(3) (user)**.
 ![](./Media/Lab1/image8.png)
 
 
-**Step 3:** In the query window,Click on New Query and paste and run the following SQL to create the schema:
+**4.3:** In the query window,Click on New Query and paste and run the following SQL to create the schema:
 
 ```sql
 -- Create Schema
@@ -140,7 +140,7 @@ If it runs successfully, you will see " Query executed successfully" in the Mess
 ```
 ![](./Media/Lab1/image10.png)
 
-**Step 4:** Click on new query, paste the following, and click **▶ Run**:
+**4.4:** Click on new query, paste the following, and click **▶ Run**:
 
 ```sql
 -- Create Customer Table
@@ -184,7 +184,7 @@ CREATE TABLE SalesLT.SalesOrderDetail (
 ![](./Media/Lab1/image11.png)
 
 
-**Step 5:** Click on new query,paste the following, and click **▶ Run**:
+**4.5:** Click on new query, paste the following, and click **▶ Run**:
 
 ```sql
 -- Insert Customers
@@ -228,7 +228,7 @@ VALUES
 
 ![](./Media/Lab1/image12.png)
 
-**Step 6:** Verify your data by running:
+**4.6:** Verify your data by running:
 
 ```sql
 SELECT * FROM SalesLT.Product
@@ -246,7 +246,7 @@ SELECT * FROM SalesLT.SalesOrderDetail
 ```
 ![](./Media/Lab1/image16.png)
 
->  **Verify:** All 3 tables return data  5 customers, 10 products, 10 order lines
+>  **Verify:** All 3 tables return data:  5 customers, 10 products, 10 order lines
 
 ---
 
