@@ -87,7 +87,7 @@ Creating the Azure OpenAI resource alone is not enough — you must deploy a spe
 ![](./Media/Lab2/image8.png)
 
 
-> ✅ **Verify:** Model `gpt-4-1` shows state **Succeeded** in deployments info
+>  **Verify:** Model `gpt-4-1` shows state **Succeeded** in deployments info
 
 ---
 
@@ -107,7 +107,7 @@ You will need the OpenAI endpoint URL and API key when configuring your App Serv
 ![](./Media/Lab2/image9.png)
 
 
-> 📝 **Save these values — you will use them in Task 2.6**
+>  **Save these values — you will use them in Task 2.6**
 
 ---
 
@@ -178,7 +178,7 @@ The App Service is the actual web application host. It will run your Python Fast
 >App Service overview showing textsql-webapp URL: https://textsql-webapp.azurewebsites.net]
 
 
-> ✅ **Verify:** App Service URL = `https://textsql-webapp.azurewebsites.net` and Status = Running
+>  **Verify:** App Service URL = `https://textsql-webapp.azurewebsites.net` and Status = Running
 
 ---
 
