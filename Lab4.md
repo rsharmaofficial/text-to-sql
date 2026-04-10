@@ -1,8 +1,8 @@
-# 🧪 LAB 4 — Deploying the Application & Testing
+#  LAB 4:Deploying the Application & Testing
 
 ## Overview
 
-In this lab, you will prepare the application code files, create the deployment package, deploy it to Azure App Service using Azure CLI, and then test the complete end-to-end solution by asking natural language questions through the web interface.
+In this lab, you will prepare the application code files, create the deployment package, deploy it to Azure App Service using the Azure CLI, and then test the complete end-to-end solution by asking natural-language questions through the web interface.
 
 ## Objectives
 - Review and understand the application code
@@ -18,31 +18,31 @@ In this lab, you will prepare the application code files, create the deployment 
 
 
 
-## Task 4.1 — Create Application Files Locally
+## Task 1: Create Application Files Locally
 
 **Description:**
 Create a dedicated folder on your local machine and save all the application files.
 
 ### Steps
 
-**Step 1:** Open your VS Code on your local machine, Create a new folder from the terminal and navigate into it:
+**1.1:** Open your VS Code on your local machine, Create a new folder from the terminal and navigate into it:
 ```
 C:\Users\YourName/> mkdir textsql-app
 C:\Users\YourName/> cd textsql-app
 ```
 
-**Step 2:** Inside that folder, create the following 3 files using VS Code or Notepad:
+**1.2:** Inside that folder, create the following 3 files using VS Code or Notepad:
 - `main.py`
 - `requirements.txt`
 - `startup.sh` 
 
 ![](./Media/Lab4/image1.png)
 
-> ✅ **Verify:** All 3 files exist in your local folder
+>  **Verify:** All 3 files exist in your local folder
 
 ---
 
-## Task 4.2 — Review Application Files
+## Task 2 — Review Application Files
 
 **Description:**
 Before deploying, review the four files that make up your application. Each file has a specific role in the Function Call Dynamic Query pipeline.
@@ -59,10 +59,10 @@ textsql-app/
 ![](./Media/Lab4/image1.png)
 ---
 
-### File 1 — `main.py`
+### File 1: `main.py`
 
 **Description:**
-The core application file. It contains the FastAPI web server, the connection to Azure SQL using Managed Identity, the OpenAI integration for generating SQL queries, and the HTML chat interface served to users.
+The core application file. It includes the FastAPI web server, an Azure SQL connection using Managed Identity, the OpenAI integration for generating SQL queries, and the HTML chat interface served to users.
 Copy and paste the following code into `main.py`:
 
 ```python
@@ -236,7 +236,7 @@ async def ask(request: AskRequest):
 ---
 ![](./Media/Lab4/image2.png)
 
-### File 2 — `requirements.txt`
+### File 2: `requirements.txt`
 
 **Description:**
 Lists all Python packages your application needs. Azure App Service reads this file and installs all packages automatically during startup.
@@ -256,10 +256,10 @@ httpx==0.27.0
 ![](./Media/Lab4/image3.png)
 ---
 
-### File 3 — `startup.sh`
+### File 3: `startup.sh`
 
 **Description:**
-This shell script runs automatically when Azure App Service starts your container. It installs all Python dependencies from `requirements.txt` and then starts the Gunicorn web server with Uvicorn workers to serve your FastAPI app.
+This shell script runs automatically when the Azure App Service starts your container. It installs all Python dependencies from `requirements.txt` and then starts the Gunicorn web server with Uvicorn workers to serve your FastAPI app.
 
 ```bash
 #!/bin/bash
@@ -272,14 +272,14 @@ python3 -m gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.
 
 ---
 
-## Task 4.3 — Deploy Application to Azure App Service
+## Task 3: Deploy Application to Azure App Service
 
 **Description:**
 You will zip the application files and deploy them to Azure App Service using the Azure CLI. This uploads your code to the cloud where it will run permanently.
 
 ### Steps
 
-**Step 1:** Open **PowerShell Terminal** and create the deployment zip:
+**1.1:** Open **PowerShell Terminal** and create the deployment zip:
 
 ```powershell
 cd C:\Users\YourName\textsql-app
@@ -287,7 +287,7 @@ cd C:\Users\YourName\textsql-app
 Compress-Archive -Path main.py, requirements.txt, startup.sh -DestinationPath app.zip -Force
 ```
 
-**Step 2:** Verify the zip was created:
+**1.2:** Verify the zip was created:
 
 ```powershell
 Get-Item app.zip
@@ -295,7 +295,7 @@ Get-Item app.zip
 
 ![](./Media/Lab4/image5.png)
 
-**Step 3:** Open **Git Bash** in your vscode terminal  and deploy using Azure CLI:
+**1.3:** Open **Git Bash** in your VS Code terminal  and deploy using Azure CLI:
 
 ```bash
 az webapp deploy \
@@ -306,7 +306,7 @@ az webapp deploy \
 ```
 
 
-**Step 4:** Restart the App Service to apply the new code:
+**1.4:** Restart the App Service to apply the new code:
 
 ```bash
 az webapp restart \
@@ -314,18 +314,18 @@ az webapp restart \
   --name textsql-webapp
 ```
 
-> ✅ **Verify:** Deployment shows `"complete": true` and `"status": 4`
+>  **Verify:** Deployment shows `"complete": true` and `"status": 4`
 
 ---
 
-## Task 4.4 — Verify Deployment via Logs
+## Task 4 — Verify Deployment via Logs
 
 **Description:**
 After deploying, watch the live application logs to confirm the startup script runs successfully, packages are installed, and the web server starts without errors.
 
 ### Steps
 
-**Step 1:** In Git Bash, run the live log streaming command:
+**1.1:** In Git Bash, run the live log streaming command:
 
 ```bash
 az webapp log tail \
@@ -333,7 +333,7 @@ az webapp log tail \
   --name textsql-webapp
 ```
 
-**Step 2:** Wait and watch for the following lines in the output:
+**1.2:** Wait and watch for the following lines in the output:
 
 ```
 Installing Python packages...
@@ -342,7 +342,7 @@ Application startup complete.
 Uvicorn running on http://0.0.0.0:8000
 ```
 
-**Step 3:** If you see errors, check the most common issues:
+**1.3:** If you see errors, check the most common issues:
 
 | Error | Fix |
 |-------|-----|
@@ -350,18 +350,18 @@ Uvicorn running on http://0.0.0.0:8000
 | `gunicorn: command not found` | Ensure startup.sh uses `python3 -m gunicorn` |
 | `Connection refused` | Check environment variables are set correctly |
 
-> ✅ **Verify:** Logs show `Application startup complete` with no errors
+>  **Verify:** Logs show `Application startup complete` with no errors
 
 ---
 
-## Task 4.5 — Test the Application
+## Task 5 — Test the Application
 
 **Description:**
 With the application running, open the web interface and test it by asking natural language questions about your database. The AI should generate SQL, query your Azure SQL Database, and return real answers.
 
 ### Steps
 
-**Step 1:** Open your browser and navigate to `textsql-webapp`and copy the URL or click on the url it will open in the new tab:
+**1.1:** Open your browser and navigate to `textsql-webapp`and copy the URL or click on the url it will open in the new tab:
 ![](./Media/Lab4/image7.png)
 ```
 https://textsql-webapp.azurewebsites.net
@@ -370,18 +370,18 @@ https://textsql-webapp.azurewebsites.net
 ![](./Media/Lab4/image8.png)
 
 
-**Step 2:** Type the following question and click **Ask**:
+**1.2:** Type the following question and click **Ask**:
 ```
 Give me the top 5 selling products
 ```
 ![](./Media/Lab4/image9.png)
 
 
-**Step 3:** Verify the response shows:
+**1.3:** Verify the response shows:
 - **Generated SQL** — a valid SELECT query with TOP 5
 - **Answer** — product names from your actual database (Mountain Bike Pro, Road Bike Elite, etc.)
 
-**Step 4:** Try more questions to validate the application:
+**1.4:** Try more questions to validate the application:
 
 | Question | Expected Result |
 |----------|----------------|
@@ -392,32 +392,32 @@ Give me the top 5 selling products
 
 ![](./Media/Lab4/image10.png)
 
-> ✅ **Verify:** App returns real data from your Azure SQL Database for all test questions
+>  **Verify:** App returns real data from your Azure SQL Database for all test questions
 
 ---
 
-## Task 4.6 — Verify in Azure Portal
+## Task 6 — Verify in Azure Portal
 
 **Description:**
 As a final verification step, confirm everything is connected and running correctly from the Azure Portal.
 
 ### Steps
 
-**Step 1:** Navigate to `textsql-webapp` in Azure Portal.
+**1.1:** Navigate to `textsql-webapp` in Azure Portal.
 
-**Step 2:** Click **Overview** — verify Status = **Running**.
+**1.2:** Click **Overview** — verify Status = **Running**.
 
 ![](./Media/Lab4/image11.png)
 
-**Step 3:** Click **Log stream** to see live logs from the portal in the left pane.
+**1.3:** Click **Log stream** to see live logs from the portal in the left pane.
 
 
 ![](./Media/Lab4/image13.png)
-> ✅ **Verify:** App Service is Running, logs are streaming.
+>  **Verify:** App Service is Running, logs are streaming.
 
 ---
 
-### ✅ Lab 4 Complete — Checklist
+###  Lab 4 Complete — Checklist
 
 - [ ] All 3 files created locally: `main.py`, `requirements.txt`, `startup.sh`
 - [ ] `app.zip` created containing only the 3 application files
@@ -433,7 +433,6 @@ As a final verification step, confirm everything is connected and running correc
 
 ---
 
-## 🎉 Lab Guide Complete!
 
 Congratulations! You have successfully built and deployed a complete **Function Call Dynamic Query** on Microsoft Azure.
 
