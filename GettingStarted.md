@@ -1,7 +1,7 @@
-# 🔷 Microsoft Azure — Function Call Dynamic Query
+#  Microsoft Azure — Function Call Dynamic Query
 ## Hands-On Lab Guide
 
-> **Total Labs:** 4 | **Estimated Duration:** 3.5–4 Hours | **Level:** Intermediate
+> **Total Labs:** **4** | **Estimated Duration:** **3.5–4 Hours**
 
 ---
 
@@ -47,7 +47,7 @@ User Question  →  SQL Generation (GPT-4.1)  →  Answer Synthesis  →  Natura
  
 ---
  
-## 🏗️ Azure Architecture
+##  Azure Architecture
  
 | Azure Resource | Purpose | Configuration |
 |----------------|---------|---------------|
@@ -59,23 +59,23 @@ User Question  →  SQL Generation (GPT-4.1)  →  Answer Synthesis  →  Natura
 | App Service Plan | Compute resources for the App Service | Linux hosting plan |
 ---
  
-## 🔄 Application Flow
+##  Application Flow
  
 ```
-Step 1  →  User opens the web app URL in any browser
-Step 2  →  User types a question (e.g., "Give me top 5 selling products")
+Step 1  →  You opens the web app URL in any browser
+Step 2  →  You types a question (e.g., "Give me top 5 selling products")
 Step 3  →  App Service sends the question to Azure OpenAI GPT-4.1
 Step 4  →  GPT-4.1 generates the correct SQL query based on the database schema
 Step 5  →  App Service executes the SQL query against Azure SQL Database
 Step 6  →  Database returns the raw results to the application
 Step 7  →  App Service sends the results back to GPT-4.1 for formatting
 Step 8  →  GPT-4.1 returns a clear, human-readable natural language answer
-Step 9  →  User sees the final answer displayed on the web page
+Step 9  →  You sees the final answer displayed on the web page
 ```
  
 ---
  
-## 🎯 Lab Objectives
+##  Lab Objectives
  
 ### Primary Objectives
  
@@ -95,18 +95,12 @@ Step 9  →  User sees the final answer displayed on the web page
  
 ---
  
-## ✅ Prerequisites
+##  Prerequisites
  
-### Required Knowledge
+### Good to Have Knowledge About:
  
 - Basic understanding of cloud computing concepts
 - Familiarity with Python programming (beginner to intermediate level)
 - Basic knowledge of SQL (SELECT statements, JOINs)
 - Understanding of REST APIs and HTTP methods
- 
-### Required Access
- 
-- Active Microsoft Azure subscription with resource creation permissions
-- Access to [Azure Portal](https://portal.azure.com)
-- Azure CLI installed on your local machine
-- Visual Studio Code or any code editor for Python development
+- Familiarity with Azure services (App Service, SQL Database, OpenAI) is a plus but not required

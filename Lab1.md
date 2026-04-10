@@ -5,7 +5,7 @@
 
 ## Overview
 
-In this lab, you will create the data foundation of the Text-to-SQL application. You will provision an Azure SQL Server and an Azure SQL Database through the Azure Portal, configure firewall rules, and set up the database schema with sample data using the built-in Query Editor.
+In this lab, you will create the data foundation of the  Function Call Dynamic Query application. You will provision an Azure SQL Server and an Azure SQL Database through the Azure Portal, configure firewall rules, and set up the database schema with sample data using the built-in Query Editor.
 
 ## Objectives
 - Provision an Azure SQL Server with Microsoft Entra authentication

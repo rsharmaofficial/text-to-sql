@@ -45,7 +45,7 @@ C:\Users\YourName/> cd textsql-app
 ## Task 4.2 — Review Application Files
 
 **Description:**
-Before deploying, review the four files that make up your application. Each file has a specific role in the Text-to-SQL pipeline.
+Before deploying, review the four files that make up your application. Each file has a specific role in the Function Call Dynamic Query pipeline.
 
 ### Your Project Structure
 
@@ -435,7 +435,7 @@ As a final verification step, confirm everything is connected and running correc
 
 ## 🎉 Lab Guide Complete!
 
-Congratulations! You have successfully built and deployed a complete **Text-to-SQL web application** on Microsoft Azure.
+Congratulations! You have successfully built and deployed a complete **Function Call Dynamic Query** on Microsoft Azure.
 
 ### What You Built
 
