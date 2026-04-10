@@ -5,7 +5,7 @@
 
 ---
 
-## 📋 Lab Structure Overview
+##  Lab Structure Overview
 
 | Lab | Title | Duration |
 |-----|-------|----------|
@@ -16,7 +16,7 @@
 
 ---
 
-## 🔧 Resource Naming Reference
+## Resource Naming Reference
 
 Use these names throughout all labs:
 
@@ -104,3 +104,5 @@ Step 9  →  You sees the final answer displayed on the web page
 - Basic knowledge of SQL (SELECT statements, JOINs)
 - Understanding of REST APIs and HTTP methods
 - Familiarity with Azure services (App Service, SQL Database, OpenAI) is a plus but not required
+
+                        Happy Learning!
