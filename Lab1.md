@@ -54,6 +54,12 @@ The Azure SQL Server is the logical server that hosts your database. You will co
 > **Verify:** Server status shows **Available** and Microsoft Entra Admin **Configured**
 
 ---
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide. 
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+<validation step="1fa0e87b-eb46-463d-b63b-edf6e2282e16" />
 
 ## Task 2:  Configure SQL Server Firewall
 
